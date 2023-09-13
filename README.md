@@ -12,3 +12,12 @@ SOULCLICK is a dating website inspired by popular apps like Tinder and Bumble. I
 <br><br>
 
 <img width="960" alt="responsive-chat" src="https://github.com/roxyal/SOULCLICK/assets/56731199/94e033cb-00f5-4b17-abfd-414fbee5492f">
+
+# Framework
+Project created by
+* Reactjs - A framework that handles the overall frontend development with ease, it allows you to write HTML-like code in javascript (Helps in making code more readable)
+* Nodejs (Expressjs) - Handles the backend logic such as the authentication, REST-api
+* React-Redux Toolkit - Better state management with Redux toolkit
+* MongoDB - A NoSQL database that uses JSON-like format
+* JSON WebTokens - Handles the authentication of the application
+* Socket.IO - Handles the real-time chat systems

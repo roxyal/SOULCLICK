@@ -1,0 +1,230 @@
+.create-account-page-container{
+  background-color: #F0F2F6;
+  height: 100vh;
+  width: 100vw;
+}
+
+.logo-container {
+  padding: 50px 100px;
+}
+
+.create-user-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+.render-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.render-container label {
+  font-size: 2rem;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+.render-container span {
+  color: red;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.render-container input {
+  display: 	block; 
+	margin: 	0;
+	padding: 	10px;
+	text-align: left;
+	background-color: #f3fafd;
+	border: solid 2px #217093;
+	border-radius: 4px; 
+	box-sizing: border-box;
+	width: 		100%; 
+	height: 	50px;
+	font-size: 	1.55em; 
+	color: 		#353538; 
+	font-weight: 600; 
+	font-family: inherit;
+	transition: box-shadow .2s linear, border-color .25s ease-out;
+	&:focus {
+		outline: 	none;
+		box-shadow: 0px 2px 10px rgba(0,0,0,.1);
+		border: 	solid 2px #4eb8dd;
+	}
+}
+
+.particular-container {
+  margin: auto;
+  margin-top: 10%;
+}
+
+.next-btn {
+  width: 30%;
+  margin-left: 22%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: rgb(197, 196, 196);
+  cursor: pointer;
+  padding: 10px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+.next-btn:hover {
+  background-color: rgb(156, 155, 155);
+}
+
+#create-submit-btn {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.create-user-form-title h3 {
+  text-align: center;
+}
+
+.create-user-form-title h1{
+  cursor: pointer;
+}
+
+#gender {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  margin-top: 10%;  
+}
+
+.create-user-container {
+  display: flex;
+  flex-direction: column;
+  height: 55vh;
+  max-width: 400px;
+  margin: 8%;
+}
+
+.profile-logo input[type="file"] {
+  display: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.profile-logo h5 {
+  text-align: center;
+}
+
+.profile-logo img{
+  width: 175px;
+  height: 175px;
+}
+  
+.profile-logo label {
+  display: inline-block;
+  background-color: #fcf5f5;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.profile-logo label:hover {
+  background-color: #d9dbd9;
+}
+
+.particular-box {
+  padding: 20px 10px;
+}
+
+.input-group {
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #ccc;
+  margin-left: 5%;
+  margin-bottom: 3%;
+  text-align: center;
+}
+
+.particular-each-container h5 {
+  white-space: nowrap;
+}
+
+.particular-each-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-bottom: 3px;
+}
+
+.password-input {
+  gap: 0px;
+}
+
+.interest-input {
+  gap: 10px;
+}
+/* .particular-box h5, */
+.particular-box label {
+  margin-left: 10%;
+  margin-bottom: 3%;
+}
+
+.particular-box label input{
+  margin: 0 5px;
+}
+
+.create-user-container button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 8%;
+}
+  
+.create-user-container button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.errmsg {
+  display: inline-block;
+  background-color: var(--TABLE-BGCOLOR);
+  color: var(--ERROR);
+  padding: 0.25em;
+  margin-bottom: 0.5em;
+}
+
+.errmsg a:any-link {
+  color: var(--ERROR);
+  text-decoration: underline;
+}
+
+.form-input-incomplete {
+  border: 1px solid rgb(240, 25, 25);
+  outline: 1px solid rgb(240, 25, 25);
+}
+
+.form-info-circle {
+  color: rgb(186, 17, 17);
+  margin-left: 5px;
+}
+
+@media (max-width: 600px) {
+
+  .logo-container {
+    display: none;
+  }
+
+  .create-user-form-title h1{
+    padding-top: 50px;
+  }
+}

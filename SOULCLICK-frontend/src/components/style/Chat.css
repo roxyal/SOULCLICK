@@ -1,0 +1,246 @@
+#chat-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*
+    flex: 2 means that we taking up 2/5 becuz right is 3
+    flex: 3 means that taking up 3/4 becuz left is 2
+*/
+.chat-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 2px solid rgb(5, 5, 5);
+    margin: 20px;
+    height: calc(100vh - (2 * 65px)); /* Subtracting padding from the total viewport height */
+}
+.chat-left h2 {
+    padding: 10px;
+}
+.chat-right{
+    flex: 4;
+    border: 1px solid black;
+    width: calc(100vw - (2 * 20px) - (2 * 40px)); /* Subtracting padding from the total viewport width */
+    height: calc(100vh - (2 * 65px)); /* Subtracting padding from the total viewport height */
+    box-sizing: border-box; /* Includes the border within the element's dimensions */
+    border-radius: 20px;
+    margin: 20px;
+    position: relative;
+}
+
+#chat-right-name {
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    gap: 10px;
+    border-bottom: 1px solid black;
+}
+
+#chat-right-name img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+#chat-list {
+    padding: 10px;
+}
+
+#chat-conversation {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 20px;
+    position: relative;
+  }
+  /*
+    This after drawn after the chat-conversation is created
+    position absolute, which thakes the position of the nearest parent which is chat-conversation
+  */
+  #chat-conversation::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 10%; /* Adjust the left value to center the line */
+    width: 80%; /* Adjust the width value to control the length */
+    height: 1px;
+    background-color: #e5e5e5;
+  }
+
+  /* Line at the top */
+#chat-conversation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 0.1px;
+    background-color: #e5e5e5;
+  }
+
+  #chat-conversation span {
+    font-weight: 600;
+    font-size: 13px;
+  }
+  #chat-conversation img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
+  #chat-conversation:hover {
+    background-color: #ccc; /* Gray hover background color */
+    border-radius: 10px; /* Adjust the border radius as needed */
+  }
+
+/*
+  we need to include a relative here because, so that we can use it
+  to make our chat-send to be at the bottom of the chatbox-container
+*/
+#chatbox-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#chatbox-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#chatbox-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+#chatbox-header span {
+    font-weight: bold;
+    display: flex;
+}
+#chatbox-msg-container {
+    overflow-y: auto;
+    position: relative;
+    /* 
+        Using max-height: to achieve 
+    */
+    max-height: calc(100% - 180px);
+}
+#chatbox-msg {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.message-bubble {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    flex-direction: column;
+}
+  
+.right {
+    align-self: flex-end;
+    background-color: #DCF8C6;
+    border-radius: 15px 15px 0 15px;
+    padding: 10px;
+    max-width: 200px;
+}
+  
+.left {
+    align-self: flex-start;
+    background-color: #e0e0e0;
+    border-radius: 15px 15px 15px 0;
+    padding: 10px;
+    max-width: 200px;
+}
+.msg-bubble-createdAt {
+    align-self: flex-end;
+    font-size: 12px;
+}
+#chat-send {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+}
+
+#chat-send-attachment {
+    background-color: #ccc;
+    border-radius: 5px;
+    padding: 3px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    margin: auto;
+    margin-left: 20px;
+}
+#chat-send-attachment:hover {
+    background: #999;
+    transform: translateY(-0.5px);
+}
+.react-input-emoji--button svg:hover {
+    transform: translateY(-0.5px);
+}
+
+#chat-send-btn {
+    border-radius: 5px;
+    background-color: #3366cc;
+    color: white;
+    padding: 10px;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    margin: auto;
+    margin-right: 20px;
+    font-size: 12px;
+}
+  
+#chat-send-btn:hover {
+    background-color: #264c99;
+}
+#chatbox-empty-msg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+}
+/*
+    Make the scroller thinner for chatbox-msg
+*/
+#chatbox-msg-container::-webkit-scrollbar {
+    width: 6px; /* Adjust the width as desired */
+  }
+  
+  #chatbox-msg-container::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Adjust the color as desired */
+    border-radius: 1px; /* Adjust the border-radius as desired */
+  }
+
+.chat-left-hide {
+    display: none;
+}
+
+.chat-right-hide {
+    display: none;
+}
+
+.chat-right-back-btn {
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 762px) {
+    .chat-right-back-btn {
+        display: block;
+    }
+}

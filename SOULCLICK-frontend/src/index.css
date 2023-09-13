@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+.main-container {
+  max-width: 960px;
+  height: calc(100vh-80px);
+  scroll-behavior: smooth;
+  margin: auto;
+}
+
+/* all the variables that we can reuse */
+:root {
+  --ERROR: rgb(50, 45, 45);
+  --INACTIVE: lightgray;
+  --LINK-HOVER: rgba(245, 245, 245, 0.9);
+  --NOTE-BGCOLOR: hsla(240, 64%, 27%, 0.65);
+  --COMPLETE: limegreen;
+  --INPUT-INVALID: red;
+  --BORDER-COLOR: black;
+  --FOOTER-BG: lightgray;
+}
+
+body {
+  /* background-color: #126f8b; */
+  background-color: #F0F2F6;;
+  overflow-x: hidden;
+}
+
+/* || GENERAL STYLES */
+/* || vh means view height, so it means fill up 100% of the screen with respect to the laptop screen size*/
+
+
+/* block basically (creates new line after every element 
+   inline-block basically (in a row format), but with the block-level properties
+   inline: row format but then takes as much width as necessary
+*/
+.nav-header {
+  top: 0;
+  left: 0;
+  position: sticky;
+  z-index: 50;
+}
+
+/* 20px top and btm, 40px left and right */ 
+nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #1876f2;
+  padding: 20px 40px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 15px 15px rgba(0,0,0,0.05);
+}
+/* letter-spacing: give some gap diff */
+.logo-btn {
+  background: transparent;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 10px;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+}
+
+.nav-group {
+  display: flex;
+  align-items: center;
+}
+
+nav ul{
+  position: relative;
+  display: flex;
+  gap: 5px
+}
+
+nav ul li {
+  list-style: none;
+}
+
+/* white-space: nowrap, means only 1 line 
+*/
+.nav-icon-btn {
+  position: relative;
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 15px;
+  /* color: #f0f4f5; */
+  color: black;
+  white-space: nowrap; 
+}
+/* bottom: -2px means from the button itself -2px (draw a line)
+   height: thickness of the transition (animation)
+   transform: scaleX(0) means that no line will be drawn first
+*/
+.nav-icon-btn::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  /* background: #f0f4f5; */
+  background: black;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: right;
+}
+
+/* When you hover over, scaleX(1) make it draw the line in accordance with
+   the words (animation -> left to right)
+*/
+.nav-icon-btn:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-search {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* setting right: -100% allows it to default show the NAV icon(buttons)
+*/
+.nav-searchbox {
+  position: absolute;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #e6e5e5;
+  align-items: center;
+  padding: 0 30px;
+  transition: 0.5s ease-in-out;
+}
+
+.nav-searchbox input {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 50px;
+  color: #333;
+  font-size: 1.25em;
+  background:  #e6e5e5;
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+
+/* this means that when is active mode, we will can see the search bar */
+.nav-searchbox.active {
+  right: 0;
+}
+
+.searchBtn, .closeBtn {
+  position: relative;
+  left: 20px;
+  top: 2.5px;
+  font-size: 1.2rem;
+  background: transparent;
+  transition: 0.5s ease-in-out;
+  color: #f0f4f5;
+  cursor: pointer;
+}
+
+.searchBtn.active {
+  color: black;
+}
+
+.closeBtn {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  scale: 0;
+}
+
+.closeBtn.active {
+  color: black;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s;
+  scale: 1;
+}
+
+.menuToggle {
+  position: relative;
+  display: none;
+  color: #f0f4f5;
+  background: transparent;
+  margin: 0 15px;
+}
+
+.profile-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* Media Queries 
+   Below 800px: we will be handling this (TO MAKE IT RESPONSIVE)
+*/
+@media (max-width: 800px) {
+
+  .searchBtn{
+    left: 0;
+  }
+  .menuToggle {
+    /* position: absolute; */
+    display: block;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transform: translateX(20px);
+  }
+  nav .navigation {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    left: 100%;
+  }
+
+  nav.open .navigation {
+    top: 80px;
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background: #1876f2; 
+    width: 100%;
+    /* height: calc(65vh - 80px); */
+    height: auto;
+    padding: 25px; /*to align with the logo name */
+    border-top: 2px solid rgba(0,0,0,0.1);
+    gap: 20px;
+  }
+
+  .nav-icon-btn {
+    margin: 10px; /* make it equally split */
+  }
+  .hide {
+    display: none;
+  }
+  .logout-translate-right {
+    margin-right: -20px;
+  }
+
+}
+

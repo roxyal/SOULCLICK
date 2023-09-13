@@ -1,0 +1,146 @@
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10% ;
+    height: 300px;
+}
+
+/*
+    flex: 2 means that we taking up 2/5 becuz right is 3
+    flex: 3 means that taking up 3/4 becuz left is 2
+*/
+.hero-left {
+    flex: 2; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 40px;
+    /* background-color: red; */
+    
+}
+.hero-right{
+  flex: 3;
+  position: relative;
+  /* background-color: green; */
+}
+
+h1, h5 {    
+    font-family: 'Source Sans Pro', sans-serif; 
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.hero-left button {
+    width: 5rem;
+    height: 2rem;
+    /* border-radius: 10px; */
+    font-size: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+}
+
+.hero-left span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+  
+.hero-left span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+  
+.hero-left button:hover span {
+    padding-right: 15px;
+}
+  
+.hero-left button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+#login {
+	height: 100vh;
+	width: 100vw; 
+	display: flex;
+	justify-content: center;
+	/* align-items: center; */
+}
+
+#success-creation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+}
+
+#login p {
+    display: none;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+#login .active {
+    display: flex;
+}
+
+.hero-right img,
+#login img {
+    width: 600px;
+    height: 600px;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    animation: animate 3s infinite ease alternate; /* doing it continously forward and backward */
+}
+
+#login img {
+    width: 450px;
+    height: 450px;
+    animation: animate_login 3s forwards ease; /* Only forward movement */
+}
+
+@keyframes animate_login {
+    to {
+        transform: translateX(-400px); /* To the left 500px */
+      }
+}
+
+@keyframes animate {
+    to {
+      transform: translateY(40px);
+    }
+}
+
+@media (max-width: 800px) {
+    .hero-right{
+        flex: 2;
+    }
+    .hero-right img {
+        width: 350px;
+        height: 350px;
+        margin-right: -40px;
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 600px) {
+    #success-creation {
+        margin-top: 50%;
+    }
+}

@@ -1,0 +1,174 @@
+html {
+	width: 	100%; 
+	height: 100%;
+}
+
+.loginForm {
+	display: 	none;
+    width: 		100%;
+    height:  	550px;
+    margin: 	0;
+    border: 	solid 1px #DDD; 
+	border-radius: .5em;
+	position: 	absolute;
+	flex-direction: column; 
+	top: 		50%; 
+	left: 		50%; 
+	transform: 	translate(-50%,-50%);
+	max-width: 	400px;
+	background-color: #FFF;
+	padding: 	2.25em; 
+	box-sizing: border-box; 
+	z-index: 1000;
+	pointer-events: auto;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.svgContainer {
+	position: 	relative; 
+	width: 		150px; 
+	height: 	150px; 
+	margin: 	0 auto 1em;
+	border-radius: 50%; 
+	background: none; 
+	border: 	solid 2.5px #3A5E77; 
+	overflow: 	hidden;
+	pointer-events: none;
+}
+.svgContainer div {
+	position: 	relative; 
+	width: 		100%; 
+	height: 	0; 
+	overflow: 	hidden;
+	padding-bottom: 100%;
+}
+.mySVG {
+	position: 	absolute; 
+	left: 		0; 
+	top: 		0; 
+	width: 		100%; 
+	height: 	100%;
+	pointer-events: none;
+}
+
+.inputGroup {
+	margin: 	0 0 2em; 
+	padding: 	0; 
+	position: 	relative;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.loginForm label {
+	margin: 	0 0 12px; 
+	display: 	block;
+	font-size: 	1.25em; 
+	color: 		#217093; 
+	font-weight: 700; 
+	font-family: inherit;		
+}
+
+.loginForm input[type='email'], .loginForm input[type="text"], .loginForm input[type='password'] {
+	display: 	block; 
+	margin: 	0;
+	padding: 	10px;
+	text-align: left;
+	background-color: #f3fafd;
+	border: solid 2px #217093;
+	border-radius: 4px; 
+	-webkit-appearance: none;
+	box-sizing: border-box;
+	width: 		100%; 
+	height: 	50px;
+	font-size: 	1.55em; 
+	color: 		#353538; 
+	font-weight: 600; 
+	font-family: inherit;
+	transition: box-shadow .2s linear, border-color .25s ease-out;
+	&:focus {
+		outline: 	none;
+		box-shadow: 0px 2px 10px rgba(0,0,0,.1);
+		border: 	solid 2px #4eb8dd;
+	}
+}
+
+.loginForm button {
+	display: 	block; 
+	margin: 	0; 
+	padding: 	.65em 1em 1em;
+	background-color: #4eb8dd;
+	border: 	none; 
+	border-radius: 4px;
+	box-sizing: border-box; 
+	box-shadow: none;
+	width: 		100%; 
+	height: 	65px;
+	font-size: 	1.55em; 
+	color: 		#FFF; 
+	font-weight: 600; 
+	font-family: inherit;
+	cursor: pointer;
+	transition: background-color .2s ease-out;
+	&:hover, &:active {
+		background-color: #217093;
+	}
+}
+
+.loginForm .inputGroup1 {
+	.helper {
+		position: 	absolute; 
+		z-index: 	1;
+		font-family: inherit;
+	}
+	.helper1 {
+		top: 	0; 
+		left: 	0;
+		transform: translate(1.4em, 2.6em) scale(1); 
+		transform-origin: 0 0;
+		color: 	#217093; 
+		font-size: 1.25em; 
+		font-weight: 400; 
+		opacity: .65;
+		pointer-events: none;
+		transition: transform .2s ease-out, opacity .2s linear;
+	}
+	
+	&.focusWithText .helper {
+		transform: translate(1.4em, 2.0em) scale(.65); opacity: 1;
+	}
+}
+
+#remember-label {
+	display: flex;
+	gap: 10px;
+	font-size: 0.9rem;
+}
+#remember-label input[type="checkbox"] {
+	display: inline-block;
+}
+.err-msg {
+	color: red;
+}
+.open-login-modal {
+	display: flex;
+	position: fixed;	
+}
+.close-login-modal {
+	display: none;
+}
+
+.close-btn {
+	height: 15px;
+	border: none;
+	background-color: transparent;
+	color: #333;
+	font-size: 24px;
+	cursor: pointer;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.login-move-left {
+	margin-left: 1rem;
+}
